@@ -32,19 +32,21 @@ $items = $zoo->zoocart->table->cartitems->getByUser($zoo->user->get()->id);
 				</div>
 				<?php endforeach; ?>
 
-				<hr />
+				<div class="zoocart-smallcart-prices">
+					<hr />
+	
+					<!-- totals -->
+					<strong><?php echo JText::_('PLG_ZLFRAMEWORK_SUBTOTAL'); ?>:</strong> <?php 
+						echo $zoo->zoocart->currency->format($zoo->zoocart->cart->getSubtotal());
+					?><br />
+					<strong><?php echo JText::_('PLG_ZOOCART_TAXES'); ?>:</strong> <?php 
+						echo $zoo->zoocart->currency->format($zoo->zoocart->cart->getTaxes());
+					?><br />
+					<strong><?php echo JText::_('PLG_ZLFRAMEWORK_TOTAL'); ?>:</strong> <?php 
+						echo $zoo->zoocart->currency->format($zoo->zoocart->cart->getTotal());
+					?>
 
-				<!-- totals -->
-				<strong><?php echo JText::_('PLG_ZLFRAMEWORK_SUBTOTAL'); ?>:</strong> <?php 
-					echo $zoo->zoocart->currency->format($zoo->zoocart->cart->getSubtotal());
-				?><br />
-				<strong><?php echo JText::_('PLG_ZOOCART_TAXES'); ?>:</strong> <?php 
-					echo $zoo->zoocart->currency->format($zoo->zoocart->cart->getTaxes());
-				?><br />
-				<strong><?php echo JText::_('PLG_ZLFRAMEWORK_TOTAL'); ?>:</strong> <?php 
-					echo $zoo->zoocart->currency->format($zoo->zoocart->cart->getTotal());
-				?>
-
+				</div>
 			</div>
 			<hr />
 		<?php endif; ?>
