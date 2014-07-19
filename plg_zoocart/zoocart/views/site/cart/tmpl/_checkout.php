@@ -28,8 +28,8 @@ $this->app->document->addScript('zlfw:vendor/zlux/js/addons/animate.js');
 	<?php $panels['address-billing']['content'] = $this->partial('checkout_addresses', array('type' => 'billing')); ?>
 
 	<!-- shipping -->
-	<?php $panels['address-shipping']['title'] = JText::sprintf('PLG_ZOOCART_CHECKOUT_STEP_INPUT_SHIP_ADDRESS', 'uk-text-bold'); ?>
-	<?php $panels['address-shipping']['content'] = $this->partial('checkout_addresses', array('type' => 'shipping')); ?>
+	<?php //$panels['address-shipping']['title'] = JText::sprintf('PLG_ZOOCART_CHECKOUT_STEP_INPUT_SHIP_ADDRESS', 'uk-text-bold'); ?>
+	<?php //$panels['address-shipping']['content'] = $this->partial('checkout_addresses', array('type' => 'shipping')); ?>
 	
 <?php endif; ?>
 
@@ -39,10 +39,6 @@ $this->app->document->addScript('zlfw:vendor/zlux/js/addons/animate.js');
 	<?php $panels['shippings']['content'] = $this->partial('checkout_shipping', array('shipping_rates' => $this->shipping_rates)); ?>
 <?php endif; ?>
 
-<!-- Payment -->
-<?php $panels['payments']['title'] = JText::sprintf('PLG_ZOOCART_CHECKOUT_STEP_CHOOSE_PAY_METHOD', 'uk-text-bold'); ?>
-<?php $panels['payments']['content'] = '<div class="zx-zoocart-checkout-payment uk-text-center">'.$this->partial('fieldset_payment').'</div>'; ?>
-
 <!-- Notes -->
 <?php $panels['notes']['title'] = JText::sprintf('PLG_ZOOCART_CHECKOUT_STEP_NOTES', 'uk-text-bold'); ?>
 <?php ob_start(); ?>
@@ -50,6 +46,10 @@ $this->app->document->addScript('zlfw:vendor/zlux/js/addons/animate.js');
 	<textarea rows="2" class="uk-width-large-1-1" name="notes"></textarea>
 </div>
 <?php $panels['notes']['content'] = ob_get_contents(); ob_end_clean(); ?>
+
+<!-- Payment -->
+<?php $panels['payments']['title'] = JText::sprintf('PLG_ZOOCART_CHECKOUT_STEP_CHOOSE_PAY_METHOD', 'uk-text-bold'); ?>
+<?php $panels['payments']['content'] = '<div class="zx-zoocart-checkout-payment uk-text-center">'.$this->partial('fieldset_payment').'</div>'; ?>
 
 <!-- Terms -->
 <?php if($terms) : ?>
@@ -80,9 +80,11 @@ $this->app->document->addScript('zlfw:vendor/zlux/js/addons/animate.js');
 	<?php $i++; endforeach; ?>
 
 	<!-- checkout button -->
-	<button type="button" class="uk-button uk-button-success uk-float-right uk-margin-top zx-zoocart-checkout-placeorder">
-		<i class="uk-icon-shopping-cart"></i>&nbsp;&nbsp;&nbsp;<?php echo JText::_('PLG_ZOOCART_CHECKOUT'); ?>
-	</button>
+	<div class="uk-clearfix">
+		<button type="button" class="uk-button uk-button-success uk-float-right uk-margin-top zx-zoocart-checkout-placeorder">
+			<i class="uk-icon-shopping-cart"></i>&nbsp;&nbsp;&nbsp;<?php echo JText::_('PLG_ZOOCART_CHECKOUT'); ?>
+		</button>
+	</div>
 
 	<!-- script -->
 	<script type="text/javascript">
