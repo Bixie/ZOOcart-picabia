@@ -55,7 +55,7 @@ $address_renderer = $this->app->renderer->create('address')->addPath(array($this
 							<?php echo $this->app->html->_('grid.sort', 'PLG_ZLFRAMEWORK_USER', 'user_id', @$this->lists['order_Dir'], @$this->lists['order']); ?>
 						</th>
 						<th>
-							<?php echo $this->app->html->_('grid.sort', 'PLG_ZOOCART_ADDRESS_BILLING', 'billing_address', @$this->lists['order_Dir'], @$this->lists['order']); ?>
+							Email
 						</th>
 						<th>
 							<?php echo $this->app->html->_('grid.sort', 'PLG_ZOOCART_ADDRESS_SHIPPING', 'shipping_address', @$this->lists['order_Dir'], @$this->lists['order']); ?>
@@ -95,7 +95,7 @@ $address_renderer = $this->app->renderer->create('address')->addPath(array($this
 							<?php echo JFactory::getUser($row->user_id)->name; ?>
 						</td>
 						<td>
-							<?php echo $address_renderer->render('address.billing', array('item' => $row->getBillingAddress())); ?>
+							<?php echo JFactory::getUser($row->user_id)->email; ?>
 						</td>
 						<td>
 							<?php echo $address_renderer->render('address.shipping', array('item' => $row->getShippingAddress())); ?>
