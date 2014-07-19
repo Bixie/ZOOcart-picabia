@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="zoocart_payment" method="upgrade" version="2.5.9" zlfw="3.0.12">
+	<name>ZOOcart - Offline Payment</name>
+	<author>ZOOlanders</author>
+	<creationDate>August 2013</creationDate>
+	<copyright>Copyright (C) JOOlanders SL</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only</license>
+	<authorEmail>info@zoolanders.com</authorEmail>
+	<authorUrl>http://www.zoolanders.com</authorUrl>
+	<version>3.1 BETA</version>
+	<description>PLG_ZOOCART_PAYMENT_OFFLINE_DESCRIPTION</description>
+	<files>
+		<filename plugin="offline">offline.php</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_zoocart_payment_offline.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_zoocart_payment_offline.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field type="text" name="title" default="Offline" label="PLG_ZOOCART_PAYMENT_OFFLINE_TITLE" description="PLG_ZOOCART_PAYMENT_OFFLINE_TITLE_DESCR" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
