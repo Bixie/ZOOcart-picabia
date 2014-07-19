@@ -364,10 +364,16 @@ class zoocartAddressHelper extends AppHelper {
 		
 		// switch by element type
 		switch($element->getElementType()) {
-			case 'text': case 'textpro': case 'textarea': case 'textareapro':
+			case 'text': case 'textpro': 
 				if ($icon) $html[] = '<div class="uk-form-icon uk-width-1-1"><i class="uk-icon-'.$icon.'"></i>';
 				$html[] = '<input type="text" class="uk-width-1-1" name="'.$element->getControlName('value').'" value="'.$element->get('value', '').'" placeholder="'.JText::_($label).'"'.($required ? ' required' : '').' />';
 				if ($icon) $html[] = '</div>';
+				break;
+				
+			case 'textarea': case 'textareapro':
+				if ($icon) $html[] = '<label class="uk-form-label"><i class="uk-icon-'.$icon.' uk-margin-small-right"></i>'.JText::_($label).'</label>';
+				$html[] = '<textarea class="uk-width-1-1" name="'.$element->getControlName('value').'" '.($required ? ' required' : '').' />';
+				$html[] = $element->get('value', '').'</textarea>';
 				break;
 
 			case 'country':
@@ -415,11 +421,11 @@ class zoocartAddressHelper extends AppHelper {
 			'address' => 'building-o',
 			'company' => 'suitcase',
 			'country' => 'flag-o',
-			'state' => 'globe',
+			'state' => 'calendar',
 			'city' => 'globe',
 			'zip' => 'globe',
 			'vat' => 'barcode',
-			'personal_id' => 'user',
+			'personal_id' => 'envelope-o',
 			'phone' => 'phone'
 		);
 
