@@ -73,6 +73,40 @@ class CartController extends SiteResourceController {
 			'address' => $this->app->zoocart->table->addresses->getDefaultAddress($this->user->id, 'shipping')
 		));
 		
+		//log in user as quest
+		if (!$this->user->id) {
+			// init vars
+			$success = false;
+
+			$data = array();
+			$data['username'] = 'gast_'.JFactory::getDate()->format('Ymd-His');
+			$data['password'] = JUserHelper::genRandomPassword();
+			$data['password2'] = $data['password'];
+			$data['email'] = $data['username'].'@picabia.nl';
+			$data['name'] = $data['username'];
+
+
+			$password = $data['password'];
+
+			$user = new JUser();
+			$user->id = 0;
+			$user->bind($data);
+			$user->groups = array(JComponentHelper::getParams('com_users')->get('new_usertype', 2));
+
+			$success = $user->save();
+
+			if(!$success) {
+				$errors = $user->getErrors();
+				echo implode($errors);
+			} else {
+				$japp = JFactory::getApplication();
+				$japp->login(array('username' => $data['username'], 'password' => $password),array('remember'=>1));
+				$this->setRedirect(JFactory::getUri()->current());
+			}
+
+		}
+		
+		
 		// Display
 		$view = $this->getView();
 		$view->setLayout('default')->display();
