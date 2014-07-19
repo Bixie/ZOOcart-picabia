@@ -1,0 +1,1 @@
+The ZOOcart Types will be stored here, such as address.config

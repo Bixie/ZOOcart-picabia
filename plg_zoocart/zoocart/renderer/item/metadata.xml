@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout name="cart">
+		<name>Cart</name>
+		<description>Layout used to display an item in the cart</description>
+	</layout>
+	<layout name="order">
+		<name>Order</name>
+		<description>Layout used to display an item in the order view</description>
+	</layout>
+</metadata>

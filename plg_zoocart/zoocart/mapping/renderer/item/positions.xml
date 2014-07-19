@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<renderer>
+	<positions layout="subscription">
+		<position name="duration">Duration</position>
+	</positions>
+</renderer>

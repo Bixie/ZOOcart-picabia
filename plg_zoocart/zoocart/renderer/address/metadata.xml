@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout name="billing-form">
+		<name>Billing Form</name>
+		<description>Layout used to display the address edit form</description>
+	</layout>
+	<layout name="shipping-form">
+		<name>Shipping Form</name>
+		<description>Layout used to display the address edit form</description>
+	</layout>
+	<layout name="billing" type="display">
+		<name>Billing</name>
+		<description>Layout used to display the address details</description>
+	</layout>
+	<layout name="shipping" type="display">
+		<name>Shipping</name>
+		<description>Layout used to display the address details</description>
+	</layout>
+</metadata>

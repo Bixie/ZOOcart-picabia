@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="variations" group="ZOOcart">
+	<name>Variations</name>
+	<author>ZOOlanders</author>
+	<creationDate>February 2014</creationDate>
+	<copyright>Copyright (C) 2011 JOOlanders, SL</copyright>
+	<authorEmail>info@zoolanders.com</authorEmail>
+	<authorUrl>http://www.zoolanders.com</authorUrl>
+	<version>3.1</version>
+	<description>Variations Element</description>
+	<params>
+		<param name="basic" type="zlfield">
+			<setfield id="name" type="text" label="Name" help="Name used in item editor" />
+			<setfield id="description" type="textarea" label="Description" help="DESCRIPTION_TOOLTIP_ITEM_EDITOR" />
+			<loadfield type="access">
+				<access label="Access Level" help="DETAILACCESS" />
+			</loadfield>
+		</param>
+		<param name="specific" type="zlfield" label="Specific" addctrl="specific">
+			<loadfield type="loadjson">
+				<load path="elements:variations/params/config.json.php" />
+			</loadfield>
+		</param>
+	</params>
+	<params group="render">
+		<param name="layout" type="zlfield" label="Layout" addctrl="layout" toggle="true">
+			<loadfield type="layout">
+				<layout label="PLG_ZLFRAMEWORK_MAIN_LAYOUT" help="PLG_ZLFRAMEWORK_MAIN_LAYOUT_DESC" path="elements:variations/tmpl/render" default="default.php" />
+			</loadfield>
+		</param>
+	</params>	
+</element>

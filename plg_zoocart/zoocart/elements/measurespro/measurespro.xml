@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="measurespro" group="ZOOcart" orderable="true">
+	<name>Measures Pro</name>
+	<author>ZOOlanders</author>
+	<creationDate>October 2013</creationDate>
+	<copyright>Copyright (C) 2011 JOOlanders, SL</copyright>
+	<authorEmail>info@zoolanders.com</authorEmail>
+	<authorUrl>http://www.zoolanders.com</authorUrl>
+	<version>3.1</version>
+	<description>Measures Pro Element</description>
+	<params>
+		<param name="specific" type="zlfield" label="Specific" addctrl="specific">
+			<loadfield type="loadjson">
+				<load path="elements:measurespro/params/config.php" />
+			</loadfield>
+		</param>
+	</params>
+	<params group="render">
+		<param name="layout" type="zlfield" label="Layout" addctrl="layout" toggle="true">
+			<loadfield type="layout">
+				<layout label="PLG_ZLFRAMEWORK_MAIN_LAYOUT" help="PLG_ZLFRAMEWORK_MAIN_LAYOUT_DESC" path="elements:measurespro/tmpl/render" default="default.php">
+					<options>
+						<option value="default.php">Default</option>
+					</options>
+				</layout>
+			</loadfield>
+		</param>
+		<param name="filter" type="zlfield" label="Filter" addctrl="filter" toggle="starthidden">
+			<loadfield type="filter" />
+		</param>
+		<param name="separator" type="zlfield" label="Separator" addctrl="separator" toggle="starthidden">
+			<loadfield type="separator" />
+		</param>
+	</params>
+</element>

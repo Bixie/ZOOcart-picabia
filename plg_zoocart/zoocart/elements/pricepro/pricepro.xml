@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="pricepro" group="ZOOcart" orderable="true" zl_filter_group="input" zfgroup="input">
+	<name>Price Pro</name>
+	<author>ZOOlanders</author>
+	<creationDate>July 2012</creationDate>
+	<copyright>Copyright (C) 2012 ZOOlanders</copyright>
+	<authorEmail>info@zoolanders.com</authorEmail>
+	<authorUrl>http://www.zoolanders.com</authorUrl>
+	<version>3.1</version>
+	<description>Price Pro element</description>
+	<params>
+		<param name="basic" type="zlfield">
+			<setfield id="name" type="text" label="Name" help="Name used in item editor" />
+			<setfield id="description" type="textarea" label="Description" help="DESCRIPTION_TOOLTIP_ITEM_EDITOR" />
+			<loadfield type="access">
+				<access label="Access Level" help="DETAILACCESS" />
+			</loadfield>
+		</param>
+		<param name="specific" type="zlfield" label="Specific" addctrl="specific">
+			<loadfield type="loadjson">
+				<load path="elements:pricepro/params/config.php" />
+			</loadfield>
+		</param>
+	</params>
+	<params group="render">
+		<param name="layout" type="zlfield" label="Layout" addctrl="layout" toggle="true">
+			<loadfield type="layout">
+				<layout label="PLG_ZLFRAMEWORK_MAIN_LAYOUT" help="PLG_ZLFRAMEWORK_MAIN_LAYOUT_DESC" path="elements:pricepro/tmpl/render" default="default.php">
+				</layout>
+			</loadfield>
+		</param>		
+	</params>
+</element>

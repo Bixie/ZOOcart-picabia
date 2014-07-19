@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade" version="2.5">
+	<name>ZOOcart</name>
+	<author>ZOOlanders</author>
+	<creationDate>August 2013</creationDate>
+	<copyright>Copyright (C) JOOlanders SL</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only</license>
+	<authorEmail>info@zoolanders.com</authorEmail>
+	<authorUrl>http://www.zoolanders.com</authorUrl>
+	<version>3.1 BETA 24</version>
+	<description>PLG_ZOOCART_SYS_DESCRIPTION</description>
+	<scriptfile>install.script.php</scriptfile>
+	<dependencies joomla="2.5.9" zoo="3.1.6" zl="3.1" zlfw="3.1.18" />
+	<files>
+		<filename plugin="zoocart">zoocart.php</filename>
+		<filename>install.script.php</filename>
+		<filename>changelog.txt</filename>
+		<folder>zoocart</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_zoocart.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_zoocart.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/plugins/system/zoocart/zoocart/fields">
+			</fieldset>
+		</fields>
+	</config>
+</extension>

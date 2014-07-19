@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<renderer>
+	<positions layout="cart">
+		<position name="name">Name</position>
+		<position name="description">Description</position>
+		<position name="variations">Variations</position>
+	</positions>
+	<positions layout="order">
+		<position name="name">Name</position>
+		<position name="description">Description</position>
+		<position name="variations">Variations</position>
+	</positions>
+</renderer>

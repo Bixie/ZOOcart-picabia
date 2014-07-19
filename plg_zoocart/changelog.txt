@@ -1,0 +1,72 @@
+Changelog
+------------
+
+3.1 BETA 24
+ ^ All layouts adapted to ZLUX 2
+ ^ Cart and Address frontend views redesigned
+ + Cart class for better cart management
+ + PayPal Pro payment plugin
+ # All known bugs fixed
+
+3.1 BETA 23
+ + Emails Manager
+ + Bug fixes
+
+3.1 BETA 22
+ + Subscriptions
+ + Quantity check
+ * Order History improved
+ # Bug fixes
+
+3.1 BETA 21
+ + Product Variations
+ + Address Phone mapping
+ # Bug fixes
+
+3.1 BETA 20
+ + New currency format
+ ^ Omit address2 on 2checkout as ZOOcart doesn't use it
+ # PricePro value reseted to 0 fixed
+ # Use Oder currency value when rendering payment form
+ # Fixed missing Class issue during installation
+
+3.1 BETA 19
+ # Alter Item quantity on Order save event, fixed
+ # Quantity check with negative values fixed
+
+3.1 BETA 18
+ + Quantity Element custom layouts feature
+ ^ Address management improved
+ # Bug fixes
+
+3.1 BETA 17
+ + Discounts
+ ^ Bettear Checkout validation
+ ^ Orders states and emails are now translatable
+ # Fixed VIES validation
+ # Bug fixes
+
+3.1 BETA 16
+ # Fixed new Installs issues
+ ^ Populated missing states descriptions
+ + Send email to Superusers when new order is placed
+
+3.1 BETA 15
+ # Fixed issue with Beta14 Update script
+
+3.1 BETA 14
+ + com_zoolanders integration
+ + Cart, Addresses and Orders Menu Items
+ ^ Cross App Items compatibility
+ ^ Frontend Uikit transition
+ ^ Checkout perfomance improved
+ # Bug fixes
+
+
+* -> Security Fix
+# -> Bug Fix
+$ -> Language fix or change
++ -> Addition
+^ -> Change
+- -> Removed
+! -> Note

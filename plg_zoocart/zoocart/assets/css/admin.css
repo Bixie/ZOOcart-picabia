@@ -1,0 +1,151 @@
+#zoocart-admin-default table.list .vies, 
+#zoocart-admin-default table.list .enabled, 
+#zoocart-admin-default table.list .tax_class_id, 
+#zoocart-admin-default table.list .ordering {
+	text-align: center;
+	white-space: nowrap;
+}
+
+#zoocart-admin-default table.list td.billing_address,
+#zoocart-admin-default table.list td.shipping_address {
+	vertical-align: top;
+}
+
+#zoocart-admin-default table.list th,
+#zoocart-admin-default table.list td {
+	padding-left: 5px;
+}
+
+.creation-form .element-address .element {
+	padding: 0;
+	background: none;
+}
+
+.creation-form .element-address.element div.row > strong {
+	font-weight: bold;
+}
+
+.change-payment-method-toggle {
+	margin-left:10px;
+}
+
+.change-payment-method {
+	display: none;
+	margin-top:5px;
+}
+
+@media print{
+	.noprint{
+		display:none;
+	}
+
+	.creation-form {
+		min-width: 200px;
+	}
+}
+
+table.list th.used,
+table.list td.used
+{
+	text-align:center;
+	max-width:80px;
+	width:10%;
+}
+
+table.list td.discount{
+	color:#17690E;
+}
+table.list td.discount.perc{
+	color:#C1590E;
+}
+td.restrictions,
+th.restrictions
+{
+	text-align:center;
+}
+	td.restrictions .r-icon{
+		display:inline-block;
+		width:16px;
+		height:16px;
+		margin:0px 5px;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+	.r-icon.counter{
+		background-image: url(../img/counter.png);
+	}
+	.r-icon.time{
+		background-image: url(../img/time.png);
+	}
+	.r-icon.group{
+		background-image: url(../img/group.png);
+	}
+
+.pub-toggler
+{
+	display:inline-block;
+	cursor:pointer;
+	width:16px;
+	height:16px;
+	background-image: url(../img/pub.png);
+	background-repeat: no-repeat;
+	background-position:-16px 0px;
+}
+.pub-toggler.on{
+	background-position: 0px 0px;
+}
+.pub-toggler.loading{
+	background-position: center center;
+	background-image: url(../img/loading.gif);
+}
+.suffix{
+	display:none;
+}
+.row.perc .suffix{
+	display:inline-block;
+}
+#val{
+	width:150px;
+}
+
+.element-discount-info .discount-summ .amount{
+	font-weight:bold;
+	color:#17690E;
+}
+.element-discount-info .discount-info{
+	font-size:0.9em;
+}
+.element-discount-info .discount-info .grey{
+	color:#999999;
+}
+
+/* Informer notifications styles */
+.zcinfo-tip
+{
+	display:block;
+	margin:10px 20px 20px 0px;
+	padding:10px 30px;
+	border-radius:5px;
+	border:#E6B84F solid 1px;
+	background:  url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAYCAYAAAG9wPzBAAAACXBIWXMAAC4jAAAuIwF4pT92AAAD1ElEQVR4nH1Ua2gcVRS+d+bONq/dxJAUFwSVtolNo0ZNISBaKX1A0UgqiC22gdL0j1h8EZsaQ6k2voo1obKSjW1JlKggVoxCWlFo86OQYFNiNEpLSR8mmmJ3djOzOzP34XdnY2jq48Lhnjnnfufx3XOHKaWIe+TxcXaho2G8uDRWy5btP3P3t03x88z5sPGNoh1ftrGM7S+d7mhQbPzU2I51X0xT9ttbj3TesmzlRiL8+1OXpgiLt36/96eX7msjhByoOXi2nUEhoyfHBrG9UkNIO9OJvP7NOSft3snsvu2qsKSSmEz1s/Tli8SLlnb6jrOX2dfSXWbK4YILwmoPnXtOBxpqXDoYRuy7l6rt5xQNo6USm0TxbSsMa4lFAi8g2T9niTs7s4VdPvBQtqC8wnDt9Ls0cF+QUpEg4NM8UANsLuUsz7neFdOa2U0pfQ2RakUgmrjPHbbynR+uIg0d3VWt6nt+6cA+zAPR23D0fEtYgF5Tk1cS9fn95ydOOS3atuB0bPdHXSVULXmnrjbT82jcKrBO4HtFkAsORXcNtoXOa90bniqquHUgUl4ZRlBObg9srRW7T4AeRQcUtdKBm4lpp/RFhhZXRtFiJ+O+IF7GjomcGSLB2FeBk9nKuXieedks0XnNCJulhpUEodSbS2umLjDP9eZgKDFM44gGSiE3gwAS+MFGVv3maHTixTplGIYIc0q5CocP39M1fjXs0027vUA2PfDBZM1IS9Wrq5O/PrtAQmo23QPn2nn9b17yzvXHZ0Y+f7j4u7zTTixyztO3E/TthDr8D6euBWJAvllw6h7DcIlNTzLLTFoFS2JmYQnBWBC0hQnNEe5k0Lef5gFvAa2fhcCZg2vjLMImI6UVMaMoSqgFFk0tSEAlodQi1CgiZoGISTfzKc4nwdFdDFwMIXqMc0mU62RJrPJ1kp1bQwk1lZIGChJC0mnBeankslESFpPSH2KBz6uUdFAWrsVihSipjEpvg1FY1oy7igjnehLp3uZZZ5vknPhZhyBZFfNzfpdgZiuGGBUaKM1ej9n9mpDry8ORUeoPSBnS5nvG44F0sarOkZfxLCdwlceoAYhB6/LA/AKoV0nVBtHXrABuxqPrDynHO+4be2bVcYAmIXEAdbb3IOUArgOIQn4XQlRjFOxFd1X3/kT69Nbb9wOYAHD1g/0Xz2j78NN3dOezqX1rPrlk/9sl69HQ5XYDeKONABgAeOzGs4uAj51M5T6uZ81Qq7Hvmzd/hL6mtp2Vuf8E6oW/wBYd4ybzacjR/wXij9SIod0DtZXk5/MwbO03n/sL3FobdTsImOoAAAAASUVORK5CYII=) no-repeat 8px 4px;
+	background-color:#FFF4DA;
+	box-shadow: 0px 0px 10px rgba(69,42,7,0.05);
+}
+a.zc-badge{
+	color:#FFFFFF!important;
+	background-color:#087EAD;
+	padding:2px 5px;
+	border-radius:2px;
+	text-decoration:none;
+}
+a.zc-badge:hover{
+	text-decoration:none;
+}
+	a.zc-badge.green{
+		background-color:#169B15;
+	}
+.inline-controls{
+	display:inline-block;
+	padding:10px;
+	margin:0px 10px 0px 0px;
+}

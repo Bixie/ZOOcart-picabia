@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<renderer>
+	<positions layout="billing-form">
+		<position name="fields">Fields</position>
+	</positions>
+	<positions layout="shipping-form">
+		<position name="fields">Fields</position>
+	</positions>
+	<positions layout="billing">
+		<position name="name">Name</position>
+		<position name="address">Address</position>
+		<position name="details">Details</position>
+	</positions>
+	<positions layout="shipping">
+		<position name="name">Name</position>
+		<position name="address">Address</position>
+		<position name="details">Details</position>
+	</positions>
+	<positions layout="billing-details">
+		<position name="company">Company Name</position>
+		<position name="name">Customer Name</position>
+		<position name="address">Address</position>
+		<position name="country">Country</position>
+		<position name="state">State</position>
+		<position name="city">City</position>
+		<position name="zip">Zip</position>¥
+		<position name="vat">VAT</position>
+		<position name="personal_id">Personal ID</position>
+	</positions>
+	<positions layout="shipping-details">
+		<position name="company">Company Name</position>
+		<position name="name">Customer Name</position>
+		<position name="address">Address</position>
+		<position name="country">Country</position>
+		<position name="state">State</position>
+		<position name="city">City</position>
+		<position name="zip">Zip</position>
+		<position name="vat">VAT</position>
+		<position name="personal_id">Personal ID</position>
+	</positions>
+</renderer>
