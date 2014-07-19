@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" method="upgrade" client="site">
+	<name>ZOOcart Module</name>
+	<author>ZOOlanders</author>
+	<creationDate>August 2013</creationDate>
+	<copyright>Copyright (C) JOOlanders SL</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only</license>
+	<authorEmail>info@zoolanders.com</authorEmail>
+	<authorUrl>http://www.zoolanders.com</authorUrl>
+	<version>3.1</version>
+	<description>ZOOcart cart module for ZOO developed by ZOOlanders (http://zoolanders.com)</description>
+	<scriptfile>install.script.php</scriptfile>
+	<files>
+		<filename module="mod_zoocart">mod_zoocart.php</filename>
+		<filename>install.script.php</filename>
+		<filename>changelog.txt</filename>
+		<folder>tmpl</folder>
+		<folder>fields</folder>
+	</files>
+	<config>
+		<fields name="params" >
+			<fieldset name="basic" addfieldpath="/modules/mod_zoocart/fields">
+				<field name="layout" type="zlfield" label="PLG_ZLFRAMEWORK_LAYOUT" module="mod_zoocart" addctrl="layout">
+					<loadfield type="layout" >
+						<layout label="PLG_ZLFRAMEWORK_MAIN_LAYOUT" help="PLG_ZLFRAMEWORK_MAIN_LAYOUT_DESC" path="modules:mod_zoocart/tmpl" />
+					</loadfield>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
