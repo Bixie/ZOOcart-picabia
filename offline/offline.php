@@ -14,6 +14,7 @@ class plgZoocart_PaymentOffline extends JPaymentDriver {
 	public function render($data = array()) {
 		$app = App::getInstance('zoo');
 		$data['order']->state = $app->zoocart->getConfig()->get('payment_pending_orderstate', 4);
+		
 		$address = $data['order']->getBillingAddress();
 		$elements = $address->getElements();
 		$names = array();
@@ -28,14 +29,13 @@ class plgZoocart_PaymentOffline extends JPaymentDriver {
 				$email = $element->get('value');
 			}
 		}
-		
 		$name = ($names[3]?$names[3]:$names[2]).' '.$names[4];
 		$user = JFactory::getUser();
-		if ($user->email != $email) {
+		if (!empty($email) && $user->email != $email) {
 			$success = false;
 			//bestaat er een user met die mail?
 			$db = JFactory::getDbo();
-			$db->setQuery("SELECT * FROM #__users WHERE email = '$email' OR username = '$email'");
+			$db->setQuery("SELECT * FROM #__users WHERE block = 0 AND (email = '$email' OR username = '$email')");
 			$existing = $db->loadObject();
 			if ($existing->id) {
 				//wijzig order (kan niet, gebruiker heeft dan geen rechten meer om order te zien)
@@ -52,8 +52,12 @@ class plgZoocart_PaymentOffline extends JPaymentDriver {
 				$errors = $user->getErrors();
 				echo implode($errors);
 			}
+			//resend mail
+			$app->zoocart->email->send('order_new', $data['order']);
+
 		}
 		$app->zoocart->table->orders->save($data['order']);
+
 		return parent::render($data);
 	}
 }
