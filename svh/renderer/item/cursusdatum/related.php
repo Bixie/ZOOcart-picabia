@@ -21,11 +21,11 @@ defined('_JEXEC') or die('Restricted access');
 
 <li class="uk-width-1-1">
 	<div class="uk-grid">
-		<div class="uk-width-medium-3-5">
+		<div class="uk-width-medium-4-5">
 		<?php echo $this->renderPosition('title', array('style' => 'uikit_blank')); ?>
 		</div>
 
-		<div class="uk-width-medium-2-5">
+		<div class="uk-width-medium-1-5">
 		<?php echo $this->renderPosition('links', array('style' => 'uikit_blank')); ?>
 		</div>
 	</div>
