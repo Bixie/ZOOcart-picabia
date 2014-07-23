@@ -111,6 +111,27 @@ class OrderEvent {
 
 		// New order notification
 		if ($is_new) {
+		
+			//bixie add orderdata
+			$items = $order->getItems();
+			$itemnames = array();
+			foreach ($items as $item) {
+				$itemnames[] = $item->name;
+			}
+			$order->order_items = implode('<br/>',$itemnames);
+			
+			$address = $order->getBillingAddress();
+			$elements = $address->getElements();
+			$allData = array();
+			foreach($elements as $key => $element) {
+				$key = $element->config->get('billing', '');
+				$value = $element->get('value');
+				if (!empty($key)) {
+					$allData[] = $element->config->get('name', '').': '.$value;
+				}
+			}
+			$order->user_data = implode('<br/>',$allData);
+	
 
 			$app->zoocart->email->send('order_new', $order);
 			$app->zoocart->email->sendAdmin('order_new_admin', $order);

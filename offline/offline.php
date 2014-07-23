@@ -15,9 +15,17 @@ class plgZoocart_PaymentOffline extends JPaymentDriver {
 		$app = App::getInstance('zoo');
 		$data['order']->state = $app->zoocart->getConfig()->get('payment_pending_orderstate', 4);
 		
+		$items = $data['order']->getItems();
+		$itemnames = array();
+		foreach ($items as $item) {
+			$itemnames[] = $item->name;
+		}
+		$data['order']->order_items = implode('<br/>',$itemnames);
+	
 		$address = $data['order']->getBillingAddress();
 		$elements = $address->getElements();
 		$names = array();
+		$allData = array();
 		$email = '';
 		foreach($elements as $key => $element) {
 			$key = $element->config->get('billing', '');
@@ -26,9 +34,13 @@ class plgZoocart_PaymentOffline extends JPaymentDriver {
 				$names[] = $value;
 			}
 			if ($key == 'personal_id') {
-				$email = $element->get('value');
+				$email = $value;
+			}
+			if (!empty($key)) {
+				$allData[] = $element->config->get('name', '').': '.$value;
 			}
 		}
+		$data['order']->user_data = implode('<br/>',$allData);
 		$name = ($names[3]?$names[3]:$names[2]).' '.$names[4];
 		$user = JFactory::getUser();
 		if (!empty($email) && $user->email != $email) {
@@ -52,10 +64,11 @@ class plgZoocart_PaymentOffline extends JPaymentDriver {
 				$errors = $user->getErrors();
 				echo implode($errors);
 			}
+			
 			//resend mail
 			$app->zoocart->email->send('order_new', $data['order']);
-
 		}
+		
 		$app->zoocart->table->orders->save($data['order']);
 
 		return parent::render($data);
