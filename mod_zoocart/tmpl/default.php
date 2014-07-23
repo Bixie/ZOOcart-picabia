@@ -32,7 +32,7 @@ $items = $zoo->zoocart->table->cartitems->getByUser($zoo->user->get()->id);
 				</div>
 				<?php endforeach; ?>
 
-				<div class="zoocart-smallcart-prices">
+				<div class="zoocart-smallcart-prices" hidden>
 					<hr />
 	
 					<!-- totals -->
