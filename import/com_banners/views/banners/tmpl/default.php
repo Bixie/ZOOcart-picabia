@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die;
 
-// /*bixie  playground
+ /*bixie  playground
 require_once(JPATH_ADMINISTRATOR.'/components/com_zoo/config.php');
 $zoo = App::getInstance('zoo');
 $newPrice = false; // "285.00";
@@ -26,8 +26,8 @@ if ($newPrice) {
 // print_r($existingItems);
 // echo '</pre>';
 	// foreach ($existingItems as $datum) {
-		// $datum->elements = str_replace('"value": "285"','"value": "'.$newPrice.'"',$datum->elements);
-		// $db->updateObject('#__zoo_item',$datum,'id');
+	// $datum->elements = str_replace('"value": "285"','"value": "'.$newPrice.'"',$datum->elements);
+	// $db->updateObject('#__zoo_item',$datum,'id');
 	// }
 }
 
@@ -48,7 +48,7 @@ if (!isset($json)) {
 	}
 }
 //csv inleze
-$file = JPATH_ROOT.'/tmp/cursus2.csv';
+$file = JPATH_ROOT.'/tmp/cursus3.csv';
 $i=0;
 echo '<pre>';
 $dataRows = array();
@@ -67,19 +67,15 @@ $monthRef = array(
 	'dec'=>12
 );
 if ($file && ($handle = fopen($file, "r")) !== FALSE) {
-	while ( ($data = fgetcsv($handle, 10000, ';') ) !== FALSE ) { 
-		if ($i==0) {
-			$i++;
-			continue;
-		}
+	while ( ($data = fgetcsv($handle, 10000, ';') ) !== FALSE ) {
 		if ($data[0] == '') continue; //lege regel
-		$cursusdatum = new Cursusdatum($data[0],$data[1]);
-		foreach (array_splice($data,2) as $datum) {
+		$cursusdatum = new Cursusdatum($data[0],'');
+		foreach (array_splice($data,1) as $datum) {
 			if (!empty($datum)) {
 				$split = explode('-',$datum);
 				$date = JFactory::getDate($split[0].'-'.$split[1].'-20'.$split[2]);
 // echo $datum.'-'.$date->toSql().'<br/>';
-				$cursusdatum->datums[] = $date->toSql(); 
+				$cursusdatum->datums[] = $date->toSql();
 			}
 		}
 		$dataRows[] = $cursusdatum;
@@ -96,8 +92,8 @@ $cursusConfig = json_decode(file_get_contents(JPATH_ROOT.'/media/zoo/application
 $cursusdatumConfig = json_decode(file_get_contents(JPATH_ROOT.'/media/zoo/applications/blog/types/cursusdatum.config'));
 
 $import = false;
-// $import = 'datums';
-$import = 'locaties';
+$import = 'datums';
+// $import = 'locaties';
 if ($import) {
 	echo '<pre>';
 	$db = JFactory::getDbo();
@@ -112,9 +108,9 @@ if ($import) {
 
 	foreach ($dataRows as $cursusdatum) {
 		if ($import == 'datums') {
-			
+
 			$locatieZooId = isset($existingItems[$cursusdatum->alias])?$existingItems[$cursusdatum->alias]->id:0;
-	
+
 			//data
 			$locatieData = array();
 			$locData = new stdClass;
@@ -152,7 +148,7 @@ if ($import) {
 				$element->name = $elementData->name;
 				if (isset($locatieData[$elementData->name]))
 					$element->data = $locatieData[$elementData->name];
-				else 
+				else
 					$element->data = new stdClass;
 				$zooItem->setElement($identifier, $element);
 				// $zooItem->elements->$identifier = $element;
@@ -161,7 +157,7 @@ if ($import) {
 			$alias = $zoo->string->sluggify($zooItem->name);
 
 			$newData->items->{$alias} = $zooItem;
-	// print_r($cursusdatumConfig->elements);
+			// print_r($cursusdatumConfig->elements);
 
 		} else {
 			$zooItem = new zooItem($cursusdatum->plaats,'Cursuslocatie');
@@ -186,7 +182,7 @@ if ($import) {
 				$element->name = $elementData->name;
 				if (isset($locatieData[$elementData->name]))
 					$element->data = $locatieData[$elementData->name];
-				else 
+				else
 					$element->data = new stdClass;
 				$zooItem->setElement($identifier, $element);
 				// $zooItem->elements->$identifier = $element;
@@ -194,7 +190,7 @@ if ($import) {
 			$zooItem->toObject();
 			$newData->items->{$cursusdatum->alias} = $zooItem;
 		}
-			
+
 	}
 	print_r($newData);
 	file_put_contents(JPATH_ROOT.'/tmp/out'.$import.'.json',json_encode($newData));
@@ -243,6 +239,9 @@ class zooItem {
 		$this->modified = '0000-00-00 00:00:00';
 		$this->publish_down = $publish_down;
 		$this->publish_up = JFactory::getDate()->toSql();
+		$this->categories = array();
+		$this->elements = new stdClass;
+		$this->config = new stdClass;
 		$this->tags = new stdClass;
 		if ($group == 'Cursuslocatie') {
 			$this->categories[] = 'cursuslocaties';
@@ -265,6 +264,7 @@ class zooItem {
 
 
 //*/
+
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 
 JHtml::_('bootstrap.tooltip');
